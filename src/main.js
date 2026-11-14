@@ -2,6 +2,7 @@ import './css/style.css';
 import { token } from './api.js';
 import { esc } from './utils.js';
 import { navbar, activarNavbar } from './components/navbar.js';
+import { cerrarModal } from './components/modal.js';
 import { renderLogin } from './pages/login.js';
 import { renderAlmacen } from './pages/almacen.js';
 import { renderVentas } from './pages/ventas.js';
@@ -19,6 +20,7 @@ const app = document.getElementById('app');
 
 // Muestra la pantalla que corresponde a la dirección (#/almacen, #/ventas...)
 async function router() {
+  cerrarModal();
   const ruta = location.hash.replace('#/', '') || 'almacen';
 
   if (!token()) {

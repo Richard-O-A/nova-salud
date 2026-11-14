@@ -1,5 +1,5 @@
 import { logout, usuarioActual } from '../api.js';
-import { esc } from '../utils.js';
+import { esc, LOGO } from '../utils.js';
 
 const enlaces = [
   ['almacen', 'Almacén'],
@@ -10,17 +10,27 @@ const enlaces = [
 
 export function navbar(rutaActual) {
   const usuario = usuarioActual();
+  const inicial = (usuario?.nombre || '?').trim().charAt(0).toUpperCase();
   const links = enlaces
     .map(([ruta, texto]) => `<a href="#/${ruta}" class="${ruta === rutaActual ? 'activo' : ''}">${texto}</a>`)
     .join('');
 
   return `
     <header class="navbar">
-      <div class="marca">Nova Salud</div>
-      <nav>${links}</nav>
-      <div class="usuario">
-        <span>${esc(usuario?.nombre)}</span>
-        <button id="btn-salir" class="btn-sec">Salir</button>
+      <div class="navbar-in">
+        <a class="marca" href="#/almacen">
+          <img src="${LOGO}" alt="" class="logo-mini">
+          <span>Nova Salud</span>
+        </a>
+        <nav>${links}</nav>
+        <div class="usuario">
+          <div class="avatar">${esc(inicial)}</div>
+          <div class="u-datos">
+            <span>${esc(usuario?.nombre)}</span>
+            <small>${usuario?.rol === 'admin' ? 'Administrador' : 'Vendedor'}</small>
+          </div>
+          <button id="btn-salir" class="btn-sec">Salir</button>
+        </div>
       </div>
     </header>`;
 }

@@ -1,5 +1,9 @@
 // Funciones auxiliares compartidas por las pantallas
 
+// Logo del sistema. Para usar tu propia imagen, ponla en la carpeta public/
+// (por ejemplo public/mi-logo.png) y cambia esta ruta: '/mi-logo.png'
+export const LOGO = '/logo.svg';
+
 // Evita que el texto ingresado se interprete como código HTML
 export const esc = (texto) =>
   String(texto ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -28,5 +32,5 @@ export function aviso(mensaje, tipo = 'ok') {
   el.className = `aviso ${tipo}`;
   el.textContent = mensaje;
   caja.appendChild(el);
-  setTimeout(() => el.remove(), 3200);
+  setTimeout(() => el.remove(), 3500);
 }
