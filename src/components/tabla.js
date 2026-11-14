@@ -1,7 +1,5 @@
 import { esc } from '../utils.js';
 
-// Tabla reutilizable.
-// columnas: [{ titulo, campo }] o [{ titulo, render: (fila) => html }]
 export function tabla(columnas, filas, textoVacio = 'Sin registros') {
   if (!filas.length) return `<p class="vacio">${esc(textoVacio)}</p>`;
 

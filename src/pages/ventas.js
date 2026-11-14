@@ -4,7 +4,7 @@ import { esc, soles, fecha, aviso } from '../utils.js';
 
 export async function renderVentas(contenedor) {
   const [productos, ventas] = await Promise.all([api.productos(), api.ventas()]);
-  let carrito = []; // { id, nombre, precio, cantidad, stock }
+  let carrito = [];
   let busqueda = '';
 
   contenedor.innerHTML = `
@@ -142,7 +142,7 @@ export async function renderVentas(contenedor) {
         items: carrito.map((i) => ({ producto_id: i.id, cantidad: i.cantidad }))
       });
       aviso(`Venta N° ${r.id} registrada: ${soles(r.total)}`);
-      renderVentas(contenedor); // recarga stock y lista de ventas
+      renderVentas(contenedor);
     } catch (err) {
       aviso(err.message, 'error');
       btnRegistrar.disabled = false;

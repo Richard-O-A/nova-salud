@@ -1,5 +1,3 @@
-// Carga datos de ejemplo: un usuario administrador y productos de la botica.
-// Uso: npm run seed
 import 'dotenv/config';
 import bcrypt from 'bcryptjs';
 import pool from './database.js';

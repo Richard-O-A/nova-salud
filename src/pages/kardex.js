@@ -39,7 +39,6 @@ export async function renderKardex(contenedor) {
     const lista = tipo ? movimientos.filter((m) => m.tipo === tipo) : movimientos;
     const suma = (t) => lista.filter((m) => m.tipo === t).reduce((s, m) => s + m.cantidad, 0);
 
-    // Con un producto elegido, el movimiento más reciente indica el saldo actual
     const saldo =
       filtroProducto.value && movimientos.length
         ? `<div class="card"><span>Saldo actual</span><strong>${movimientos[0].saldo}</strong></div>`

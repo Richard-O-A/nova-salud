@@ -1,6 +1,5 @@
 import pool from './database.js';
 
-// Error con código HTTP para respuestas controladas (400, 404, 409...)
 export class ErrorNegocio extends Error {
   constructor(status, mensaje) {
     super(mensaje);
@@ -8,7 +7,6 @@ export class ErrorNegocio extends Error {
   }
 }
 
-// Ejecuta varias consultas como una sola operación: o se guardan todas o ninguna
 export async function conTransaccion(callback) {
   const client = await pool.connect();
   try {
@@ -24,7 +22,6 @@ export async function conTransaccion(callback) {
   }
 }
 
-// Responde con el código correcto según el tipo de error
 export function responderError(res, err) {
   if (err instanceof ErrorNegocio) {
     return res.status(err.status).json({ error: err.message });

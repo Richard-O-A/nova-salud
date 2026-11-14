@@ -1,4 +1,3 @@
-/* ===== Botica Nova Salud - estilos ===== */
 :root {
   --primario: #0d9488;
   --primario-osc: #0f766e;
@@ -33,7 +32,6 @@ h2 { font-size: 1.05rem; margin: 0 0 1rem; }
 .sub { color: var(--suave); margin: .2rem 0 1.3rem; }
 .nota { color: var(--suave); font-size: .85rem; margin: .8rem 0 0; }
 
-/* ===== Barra superior ===== */
 .navbar { background: linear-gradient(120deg, #115e59, #0d9488); box-shadow: 0 2px 10px rgba(15, 23, 42, .15); position: sticky; top: 0; z-index: 5; }
 .navbar-in { max-width: 1180px; margin: 0 auto; padding: .65rem 1.5rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
 .marca { display: flex; align-items: center; gap: .6rem; color: #fff; text-decoration: none; font-weight: 700; font-size: 1.15rem; }
@@ -51,7 +49,7 @@ h2 { font-size: 1.05rem; margin: 0 0 1rem; }
 .titulo-fila { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; }
 .titulo-fila .sub { margin-bottom: 1.3rem; }
 
-/* ===== Tarjetas ===== */
+
 .tarjeta { background: var(--blanco); border: 1px solid var(--borde); border-radius: var(--radio); padding: 1.3rem; margin-bottom: 1.3rem; box-shadow: var(--sombra); }
 .barra { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
 .barra h2 { margin: 0; }
@@ -66,7 +64,6 @@ h2 { font-size: 1.05rem; margin: 0 0 1rem; }
 
 .alerta { background: var(--ambar-claro); border: 1px solid #fcd34d; color: #78350f; padding: .85rem 1.1rem; border-radius: 12px; margin-bottom: 1.3rem; }
 
-/* ===== Formularios y botones ===== */
 label { display: flex; flex-direction: column; gap: .35rem; font-size: .85rem; font-weight: 600; color: #334155; }
 input, select { padding: .65rem .8rem; border: 1px solid #cbd5e1; border-radius: 10px; font-size: .95rem; font-family: inherit; background: #fff; color: var(--texto); transition: border-color .15s, box-shadow .15s; }
 input:focus, select:focus { outline: none; border-color: var(--primario); box-shadow: 0 0 0 3px rgba(13, 148, 136, .18); }
@@ -92,7 +89,6 @@ input:disabled { background: #f1f5f9; }
 .btn-mini.sec { background: #e2e8f0; color: var(--texto); }
 .btn-mini.sec:hover { background: #cbd5e1; }
 
-/* ===== Tablas ===== */
 .tabla-wrap { overflow-x: auto; }
 table { width: 100%; border-collapse: collapse; font-size: .92rem; }
 th { text-align: left; font-size: .76rem; text-transform: uppercase; letter-spacing: .04em; color: var(--suave); background: #f8fafc; padding: .7rem .8rem; border-bottom: 1px solid var(--borde); }
@@ -107,7 +103,6 @@ tbody tr:hover td { background: #f8fffd; }
 .badge.bajo { background: var(--rojo-claro); color: var(--rojo); }
 .badge.salida { background: var(--ambar-claro); color: var(--ambar); }
 
-/* ===== Ventas ===== */
 .venta-layout { display: grid; grid-template-columns: 1fr 390px; gap: 1.3rem; align-items: start; }
 .grid-productos { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: .8rem; max-height: 520px; overflow-y: auto; padding: 2px; }
 .prod-card { display: flex; flex-direction: column; gap: .35rem; align-items: flex-start; text-align: left; padding: .9rem; background: #fff; border: 1px solid var(--borde); border-radius: 12px; cursor: pointer; font-family: inherit; transition: border-color .15s, box-shadow .15s, transform .05s; }
@@ -133,7 +128,6 @@ tbody tr:hover td { background: #f8fffd; }
 .total { display: flex; justify-content: space-between; align-items: baseline; padding-top: .7rem; border-top: 2px solid var(--borde); font-size: 1.05rem; }
 .total strong { font-size: 1.7rem; color: var(--primario-osc); }
 
-/* ===== Ventanas emergentes ===== */
 .modal-fondo { position: fixed; inset: 0; background: rgba(15, 23, 42, .55); backdrop-filter: blur(2px); display: grid; place-items: center; padding: 1rem; z-index: 20; animation: aparecer .15s ease-out; }
 .modal { background: #fff; border-radius: 16px; width: 100%; max-width: 480px; max-height: 92vh; overflow-y: auto; box-shadow: 0 20px 50px rgba(15, 23, 42, .35); animation: subir .2s ease-out; }
 .modal-cab { display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 1.4rem; border-bottom: 1px solid var(--borde); }
@@ -145,13 +139,11 @@ tbody tr:hover td { background: #f8fffd; }
 @keyframes aparecer { from { opacity: 0; } to { opacity: 1; } }
 @keyframes subir { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 
-/* ===== Avisos flotantes ===== */
 #avisos { position: fixed; right: 1.2rem; top: 1.2rem; display: flex; flex-direction: column; gap: .5rem; z-index: 30; }
 .aviso { padding: .8rem 1.2rem; border-radius: 12px; color: #fff; font-weight: 600; box-shadow: 0 8px 24px rgba(15, 23, 42, .25); max-width: 340px; animation: subir .2s ease-out; }
 .aviso.ok { background: var(--primario-osc); }
 .aviso.error { background: var(--rojo); }
 
-/* ===== Inicio de sesión ===== */
 .login { min-height: 100vh; display: grid; grid-template-columns: 1.1fr 1fr; }
 .login-marca { background: linear-gradient(150deg, #134e4a, #0d9488); color: #fff; display: flex; flex-direction: column; justify-content: center; padding: 3rem 4rem; }
 .logo-grande { width: 96px; height: 96px; border-radius: 24px; background: #fff; padding: 6px; margin-bottom: 1.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, .25); }
@@ -166,7 +158,6 @@ tbody tr:hover td { background: #f8fffd; }
 .tabs button { border: none; background: none; padding: .6rem; border-radius: 9px; cursor: pointer; font-family: inherit; font-weight: 600; color: var(--suave); }
 .tabs button.activa { background: #fff; color: var(--primario-osc); box-shadow: 0 1px 4px rgba(15, 23, 42, .12); }
 
-/* ===== Pantallas pequeñas ===== */
 @media (max-width: 900px) {
   .venta-layout { grid-template-columns: 1fr; }
   .carrito { position: static; }

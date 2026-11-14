@@ -1,6 +1,5 @@
 import jwt from 'jsonwebtoken';
 
-// Protege las rutas: exige un token válido en el encabezado Authorization
 export function verificarToken(req, res, next) {
   const cabecera = req.headers.authorization || '';
   const token = cabecera.startsWith('Bearer ') ? cabecera.slice(7) : null;
@@ -13,4 +12,11 @@ export function verificarToken(req, res, next) {
   } catch {
     res.status(401).json({ error: 'Sesión inválida o vencida' });
   }
+}
+
+export function soloAdmin(req, res, next) {
+  if (req.usuario?.rol !== 'admin') {
+    return res.status(403).json({ error: 'Solo el administrador puede realizar esta acción' });
+  }
+  next();
 }

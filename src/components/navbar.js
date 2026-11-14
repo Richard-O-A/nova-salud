@@ -1,17 +1,19 @@
-import { logout, usuarioActual } from '../api.js';
+import { logout, usuarioActual, esAdmin } from '../api.js';
 import { esc, LOGO } from '../utils.js';
 
 const enlaces = [
   ['almacen', 'Almacén'],
   ['ventas', 'Ventas'],
   ['kardex', 'Kardex'],
-  ['resumen', 'Resumen']
+  ['resumen', 'Resumen'],
+  ['usuarios', 'Usuarios']
 ];
 
 export function navbar(rutaActual) {
   const usuario = usuarioActual();
   const inicial = (usuario?.nombre || '?').trim().charAt(0).toUpperCase();
   const links = enlaces
+    .filter(([ruta]) => ruta !== 'usuarios' || esAdmin())
     .map(([ruta, texto]) => `<a href="#/${ruta}" class="${ruta === rutaActual ? 'activo' : ''}">${texto}</a>`)
     .join('');
 

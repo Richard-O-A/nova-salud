@@ -1,5 +1,5 @@
 import './css/style.css';
-import { token } from './api.js';
+import { token, esAdmin } from './api.js';
 import { esc } from './utils.js';
 import { navbar, activarNavbar } from './components/navbar.js';
 import { cerrarModal } from './components/modal.js';
@@ -8,17 +8,18 @@ import { renderAlmacen } from './pages/almacen.js';
 import { renderVentas } from './pages/ventas.js';
 import { renderKardex } from './pages/kardex.js';
 import { renderResumen } from './pages/resumen.js';
+import { renderUsuarios } from './pages/usuarios.js';
 
 const paginas = {
   almacen: renderAlmacen,
   ventas: renderVentas,
   kardex: renderKardex,
-  resumen: renderResumen
+  resumen: renderResumen,
+  usuarios: renderUsuarios
 };
 
 const app = document.getElementById('app');
 
-// Muestra la pantalla que corresponde a la dirección (#/almacen, #/ventas...)
 async function router() {
   cerrarModal();
   const ruta = location.hash.replace('#/', '') || 'almacen';
@@ -32,7 +33,7 @@ async function router() {
     return;
   }
 
-  if (ruta === 'login' || !paginas[ruta]) {
+  if (ruta === 'login' || !paginas[ruta] || (ruta === 'usuarios' && !esAdmin())) {
     location.hash = '#/almacen';
     return;
   }

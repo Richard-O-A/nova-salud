@@ -3,6 +3,6 @@ import { listar } from '../controllers/kardexController.js';
 
 const router = Router();
 
-router.get('/', listar);   // Movimientos del inventario
+router.get('/', listar);
 
 export default router;

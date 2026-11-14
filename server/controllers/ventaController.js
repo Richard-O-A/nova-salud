@@ -15,7 +15,6 @@ export async function listar(req, res) {
   }
 }
 
-// Registra la venta, descuenta el stock y deja la SALIDA en el kardex
 export async function crear(req, res) {
   const { cliente, items } = req.body;
 
@@ -23,7 +22,6 @@ export async function crear(req, res) {
     return res.status(400).json({ error: 'La venta debe tener al menos un producto' });
   }
 
-  // Une los productos repetidos y valida cantidades
   const cantidades = new Map();
   for (const item of items) {
     if (!esEntero(item.producto_id) || !esEntero(item.cantidad) || Number(item.cantidad) <= 0) {
@@ -42,7 +40,6 @@ export async function crear(req, res) {
       const ventaId = v.rows[0].id;
       let total = 0;
 
-      // Se procesan en orden de id para evitar bloqueos entre ventas simultáneas
       const ordenados = [...cantidades].sort((a, b) => a[0] - b[0]);
 
       for (const [productoId, cantidad] of ordenados) {

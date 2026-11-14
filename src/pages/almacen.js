@@ -88,7 +88,6 @@ export async function renderAlmacen(contenedor) {
     aviso(mensaje);
   }
 
-  // Ventana para registrar o editar un producto
   function abrirFormulario(producto = null) {
     const categorias = [...new Set(productos.map((p) => p.categoria).filter(Boolean))];
 
@@ -132,7 +131,6 @@ export async function renderAlmacen(contenedor) {
     });
   }
 
-  // Ventana para ingresar mercadería (genera una ENTRADA en el kardex)
   function abrirIngreso(producto) {
     const { el, cerrar } = abrirModal(
       'Ingresar stock',

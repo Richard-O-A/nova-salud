@@ -32,7 +32,6 @@ export async function crear(req, res) {
         [String(nombre).trim(), categoria || null, Number(precio), Number(stock), Number(stockMinimo)]
       );
       const p = r.rows[0];
-      // El stock inicial queda registrado como la primera entrada del kardex
       if (p.stock > 0) {
         await db.query(
           `insert into movimientos (producto_id, tipo, cantidad, saldo, motivo)
@@ -71,7 +70,6 @@ export async function actualizar(req, res) {
   }
 }
 
-// Ingreso de mercadería: suma al stock y registra la ENTRADA en el kardex
 export async function ingresarStock(req, res) {
   const { cantidad, motivo } = req.body;
 

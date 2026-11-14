@@ -2,8 +2,6 @@ import { esc } from '../utils.js';
 
 let cerrarActual = null;
 
-// Abre una ventana emergente con el contenido indicado.
-// Devuelve { el, cerrar } para conectar los botones del formulario.
 export function abrirModal(titulo, html) {
   cerrarModal();
 

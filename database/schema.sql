@@ -1,5 +1,3 @@
--- Botica Nova Salud - Esquema de la base de datos (PostgreSQL / Supabase)
-
 create table if not exists usuarios (
   id serial primary key,
   nombre varchar(100) not null,
@@ -36,7 +34,6 @@ create table if not exists detalle_ventas (
   subtotal numeric(10,2) not null
 );
 
--- Kardex: cada entrada o salida de mercadería queda registrada con su saldo
 create table if not exists movimientos (
   id serial primary key,
   producto_id int not null references productos(id),
@@ -48,8 +45,6 @@ create table if not exists movimientos (
   fecha timestamptz default now()
 );
 
--- Seguridad: bloquea el acceso público directo a las tablas.
--- Solo el servidor Node.js puede leer y escribir los datos.
 alter table usuarios enable row level security;
 alter table productos enable row level security;
 alter table ventas enable row level security;
